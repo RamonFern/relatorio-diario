@@ -3,7 +3,6 @@ package com.rf.relatorio.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.rf.relatorio.dto.response.MessageResponseDTO;
 import com.rf.relatorio.entity.Relatorio;
 import com.rf.relatorio.repository.RelatorioRepository;
 
@@ -17,13 +16,8 @@ public class RelatorioService {
 		this.relatorioRepository = relatorioRepository;
 	}
 	
-	public MessageResponseDTO createRelatorio(Relatorio relatorio) {
-		Relatorio relatorioCriado = relatorioRepository.save(relatorio);
-		return MessageResponseDTO
-				.builder()
-				.message("Relatório criado com sucesso id = " + relatorioCriado.getId())
-				.build();
-		
+	public Relatorio createRelatorio(Relatorio relatorio) {
+		return  relatorioRepository.save(relatorio); 
 	}
 	
 	

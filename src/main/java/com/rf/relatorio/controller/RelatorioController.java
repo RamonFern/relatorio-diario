@@ -2,31 +2,39 @@ package com.rf.relatorio.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rf.relatorio.dto.response.MessageResponseDTO;
+import com.rf.relatorio.dto.RelatorioDTO;
 import com.rf.relatorio.entity.Relatorio;
+import com.rf.relatorio.mapper.RelatorioMapper;
 import com.rf.relatorio.service.RelatorioService;
 
 @RestController
 @RequestMapping("/api/v1/relatorio")
 public class RelatorioController {
 
-	private RelatorioService relatorioService;
+	private final RelatorioService relatorioService;
+	private final RelatorioMapper relatorioMapper;
 
 	@Autowired
-	public RelatorioController(RelatorioService relatorioService) {
+	public RelatorioController(RelatorioService relatorioService, RelatorioMapper relatorioMapper) {
 		this.relatorioService = relatorioService;
+		this.relatorioMapper = relatorioMapper;
 	}
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public MessageResponseDTO createRelatorio(@RequestBody Relatorio relatorio) {
-		return relatorioService.createRelatorio(relatorio);				
+	public ResponseEntity<RelatorioDTO> createRelatorio(@RequestBody RelatorioDTO relatorioDto) {
+		Relatorio relatorio = relatorioMapper.toRelatorio(relatorioDto);
+		Relatorio createRelatorio = relatorioService.createRelatorio(relatorio);
+		RelatorioDTO dto = relatorioMapper.toDTO(createRelatorio);
+		return ResponseEntity.status(HttpStatus.CREATED).body(dto);
+						
 	}
 	
 	
