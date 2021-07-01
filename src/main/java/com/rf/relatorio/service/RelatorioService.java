@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rf.relatorio.entity.Relatorio;
+import com.rf.relatorio.exception.RelatorioNotFoundException;
 import com.rf.relatorio.repository.RelatorioRepository;
 
 @Service
@@ -29,6 +30,10 @@ public class RelatorioService {
 		return relatorioRepository.findAll();
 	}
 	
+	@Transactional(readOnly = true)
+	public Relatorio findById(Long id) {
+		return relatorioRepository.findById(id).orElseThrow(() -> new RelatorioNotFoundException(id));
+	}
 	
 
 }
