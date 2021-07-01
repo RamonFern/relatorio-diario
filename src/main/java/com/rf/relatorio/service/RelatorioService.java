@@ -41,5 +41,15 @@ public class RelatorioService {
 		relatorioRepository.deleteById(id);
 	}
 	
+	@Transactional
+	public Relatorio update(Long id, Relatorio relatorio) {
+		Relatorio relatorioUpdate = findById(id);
+		relatorioUpdate.setData(relatorio.getData());
+		relatorioUpdate.setInspetor(relatorio.getInspetor());
+		relatorioUpdate.setTexto(relatorio.getTexto());
+		relatorioRepository.save(relatorioUpdate);
+		return relatorioUpdate;
+	}
+	
 
 }
