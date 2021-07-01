@@ -35,5 +35,11 @@ public class RelatorioService {
 		return relatorioRepository.findById(id).orElseThrow(() -> new RelatorioNotFoundException(id));
 	}
 	
+	@Transactional
+	public void delete(Long id) {
+		findById(id);
+		relatorioRepository.deleteById(id);
+	}
+	
 
 }
