@@ -24,7 +24,7 @@ public class Relatorio {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private LocalDate data;
+	private String data;
 	
 	@Column(nullable = false)
 	private String texto;

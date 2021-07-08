@@ -22,7 +22,7 @@ public class RelatorioDTO {
 	private Long id;
 
 	@JsonFormat(pattern = "dd-MM-yyyy")
-	private LocalDate data;
+	private String data;
 
 	@NotEmpty
 	private String texto;
