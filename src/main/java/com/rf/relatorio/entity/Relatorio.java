@@ -1,7 +1,5 @@
 package com.rf.relatorio.entity;
 
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +25,19 @@ public class Relatorio {
 	private String data;
 	
 	@Column(nullable = false)
+	private boolean alteracao;
+	
+	@Column(nullable = false)
+	private String equipe;
+	
+	@Column(nullable = false)
 	private String texto;
+	
+	@Column(nullable = false)
+	private String texto2;
+	
+	@Column(nullable = false)
+	private String texto3;
 	
 	@Column(nullable = false)
 	private String inspetor;

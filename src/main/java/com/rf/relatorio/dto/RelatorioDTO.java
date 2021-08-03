@@ -1,7 +1,5 @@
 package com.rf.relatorio.dto;
 
-import java.time.LocalDate;
-
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -23,9 +21,21 @@ public class RelatorioDTO {
 
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private String data;
+	
+	@NotEmpty
+	private boolean alteracao;
 
 	@NotEmpty
+	private String equipe;
+	
+	@NotEmpty
 	private String texto;
+	
+	@NotEmpty
+	private String texto2;
+	
+	@NotEmpty
+	private String texto3;
 
 	@NotEmpty
 	private String inspetor;

@@ -27,6 +27,7 @@ import com.rf.relatorio.service.RelatorioService;
 //@CrossOrigin(origins = "http://localhost:4200/")
 public class RelatorioController {
 
+	
 	private final RelatorioService relatorioService;
 	private final RelatorioMapper relatorioMapper;
 
