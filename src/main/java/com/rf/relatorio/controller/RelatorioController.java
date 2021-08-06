@@ -29,6 +29,7 @@ public class RelatorioController {
 
 	
 	private final RelatorioService relatorioService;
+	
 	private final RelatorioMapper relatorioMapper;
 
 	@Autowired
