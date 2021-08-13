@@ -23,8 +23,8 @@ import com.rf.relatorio.service.RelatorioService;
 
 @RestController
 @RequestMapping("/api/v1/relatorio")
-//@CrossOrigin(origins = "https://front-relatorio-v2.herokuapp.com/")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "https://front-relatorio-v2.herokuapp.com/")
+//@CrossOrigin(origins = "http://localhost:4200/")
 public class RelatorioController {
 
 	
