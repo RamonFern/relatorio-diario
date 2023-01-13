@@ -21,10 +21,12 @@ import com.rf.relatorio.entity.Relatorio;
 import com.rf.relatorio.mapper.RelatorioMapper;
 import com.rf.relatorio.service.RelatorioService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @RequestMapping("/api/v1/relatorio")
-@CrossOrigin(origins = "https://front-relatorio-v2.herokuapp.com/")
-//@CrossOrigin(origins = "http://localhost:4200/")
+//@CrossOrigin(origins = "https://front-relatorio-v2.herokuapp.com/")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class RelatorioController {
 
 	
@@ -39,6 +41,7 @@ public class RelatorioController {
 	}
 	
 	@PostMapping
+	@Operation(summary = "Criar novo relatório")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<RelatorioDTO> createRelatorio(@RequestBody RelatorioDTO relatorioDto) {
 		Relatorio relatorio = relatorioMapper.toRelatorio(relatorioDto);

@@ -23,8 +23,8 @@ import com.rf.relatorio.service.AgenteUserService;
 
 @RestController
 @RequestMapping("/api/v2/agenteUser")
-//@CrossOrigin(origins = "http://localhost:4200/")
-@CrossOrigin(origins = "https://front-relatorio-v2.herokuapp.com/")
+@CrossOrigin(origins = "http://localhost:4200/")
+//@CrossOrigin(origins = "https://front-relatorio-v2.herokuapp.com/")
 public class AgenteUserController {
 	
 	private AgenteUserService agenteService;
