@@ -21,6 +21,8 @@ import com.rf.relatorio.entity.AgenteUser;
 import com.rf.relatorio.mapper.AgenteUserMapper;
 import com.rf.relatorio.service.AgenteUserService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @RequestMapping("/api/v2/agenteUser")
 @CrossOrigin(origins = "http://localhost:4200/")
@@ -36,6 +38,7 @@ public class AgenteUserController {
 		this.agenteUserMapper = agenteUserMapper;
 	}
 	
+	@Operation(summary = "Adicionar novo agente")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<AgenteUserDTO> createAgenteUser(@RequestBody AgenteUserDTO userDto) {
@@ -45,7 +48,7 @@ public class AgenteUserController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(dto);
 	}
 	
-	
+	@Operation(summary = "Buscar todos os relatórios")
 	@GetMapping
 	public ResponseEntity<List<AgenteUserDTO>> findAll(){
 		List<AgenteUser> list = agenteService.findAll();
@@ -53,6 +56,7 @@ public class AgenteUserController {
 		return ResponseEntity.ok(agenteUserDTOList);
 	}
 	
+	@Operation(summary = "Buscar relatório por id")
 	@GetMapping("/{id}")
 	public ResponseEntity<AgenteUserDTO> findById(@PathVariable Long id) {
 		AgenteUser agenteUser = agenteService.findById(id);
@@ -60,12 +64,14 @@ public class AgenteUserController {
 		return ResponseEntity.ok(agenteUserDTO);
 	}
 	
+	@Operation(summary = "Deletar relatório")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable Long id) {
 		agenteService.delete(id);
 		return ResponseEntity.noContent().build();
 	}
 	
+	@Operation(summary = "Editar relatório")
 	@PutMapping("/{id}")
 	public ResponseEntity<AgenteUserDTO> update(@PathVariable Long id, @RequestBody AgenteUserDTO agenteUserDTO) {
 		AgenteUser agenteUser = agenteUserMapper.toAgenteUser(agenteUserDTO);

@@ -50,6 +50,7 @@ public class RelatorioController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(dto);					
 	}
 	
+	@Operation(summary = "Listar todos Relatórios")
 	@GetMapping
 	public ResponseEntity<List<RelatorioDTO>> findAll(){
 		List<Relatorio> list = relatorioService.findAll();
@@ -57,6 +58,7 @@ public class RelatorioController {
 		return ResponseEntity.ok(relatorioDTOList);
 	}
 	
+	@Operation(summary = "Buscar relatório por id")
 	@GetMapping("/{id}")
 	public ResponseEntity<RelatorioDTO> findById(@PathVariable Long id) {
 		Relatorio relatorio = relatorioService.findById(id);
@@ -64,12 +66,14 @@ public class RelatorioController {
 		return ResponseEntity.ok(relatorioDTO);
 	}
 	
+	@Operation(summary = "Deletar relatório")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable Long id) {
 		relatorioService.delete(id);
 		return ResponseEntity.noContent().build();
 	}
 	
+	@Operation(summary = "Atualizar relatório")
 	@PutMapping("/{id}")
 	public ResponseEntity<RelatorioDTO> update(@PathVariable Long id, @RequestBody RelatorioDTO relatorioDTO) {
 		Relatorio relatorioAtualizada = relatorioMapper.toRelatorio(relatorioDTO);
