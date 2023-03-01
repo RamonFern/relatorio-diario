@@ -3,7 +3,6 @@ package com.rf.relatorio.dto;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.rf.relatorio.entity.Equipe;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
