@@ -1,9 +1,13 @@
 package com.rf.relatorio.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,7 +45,27 @@ public class EquipeController {
 		
 		EquipeDTO dto = equipeMapper.toEquipeDTO(equipeCriada);
 		return ResponseEntity.status(HttpStatus.CREATED).body(dto);
-		
 	}
+	
+	@Operation(summary = "Buscar todas as equipes")
+	@GetMapping
+	ResponseEntity<List<EquipeDTO>> findAll(){
+		List<Equipe> list = equipeService.findAll();
+		List<EquipeDTO> equipeDtoList = equipeMapper.toEquipeDTOList(list);
+		return ResponseEntity.ok(equipeDtoList);
+	}
+	
+	@Operation(summary = "Buscar equipe por id")
+	@GetMapping("/{id}")
+	public ResponseEntity<EquipeDTO> findById(@PathVariable Long id) {
+		Equipe equipe = equipeService.findById(id);
+		EquipeDTO equipeDto = equipeMapper.toEquipeDTO(equipe);
+		return ResponseEntity.ok(equipeDto);
+	}
+	
+	
+	
+	
+	
 
 }

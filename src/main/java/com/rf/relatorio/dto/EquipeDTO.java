@@ -1,7 +1,5 @@
 package com.rf.relatorio.dto;
 
-import java.util.List;
-
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,9 +18,12 @@ import lombok.NoArgsConstructor;
 public class EquipeDTO {
 	
 	private Long id;
+	
 	@NotEmpty
-	private Long idInspetor;
+	private String nomeEquipe;
+	
 	@NotEmpty
-	private List<Integer> agentes;
+	private String id_agentes;
+//	private List<AgenteUser> agentes;
 
 }

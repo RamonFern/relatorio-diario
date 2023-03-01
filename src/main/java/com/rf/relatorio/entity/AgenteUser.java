@@ -31,4 +31,9 @@ public class AgenteUser {
 	@Column(nullable = false)
 	private Integer codigo;
 	
+//    @ManyToOne
+//	private Equipe equipe;
+	
+
+	
 }

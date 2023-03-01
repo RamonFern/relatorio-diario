@@ -1,12 +1,10 @@
 package com.rf.relatorio.entity;
 
-import java.util.List;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,8 +22,14 @@ public class Equipe {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToMany
-	private List<AgenteUser> agentes;
+	@Column
+	private String nomeEquipe;
+	
+	@Column
+	private String id_agentes;
+	
+	
+	
 	
 	
 
