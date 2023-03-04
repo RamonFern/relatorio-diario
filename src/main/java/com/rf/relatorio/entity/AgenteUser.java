@@ -31,8 +31,8 @@ public class AgenteUser {
 	@Column(nullable = false)
 	private Integer codigo;
 	
-//    @ManyToOne
-//	private Equipe equipe;
+	@Column(nullable = true)
+    private Long equipe_id;
 	
 
 	

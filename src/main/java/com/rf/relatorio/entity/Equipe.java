@@ -25,8 +25,12 @@ public class Equipe {
 	@Column
 	private String nomeEquipe;
 	
-	@Column
-	private String id_agentes;
+//	@Column
+//	private String id_agentes;
+	
+//	@OneToMany
+//    @JoinColumn(name = "equipe_id")
+//    private List<AgenteUser> agentes;
 	
 	
 	

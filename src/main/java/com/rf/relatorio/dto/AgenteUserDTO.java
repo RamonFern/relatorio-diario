@@ -27,6 +27,9 @@ public class AgenteUserDTO {
 	@NotEmpty
 	private Integer codigo;
 	
+	@NotEmpty
+	private Long equipe_id;
+	
 
 	
 }

@@ -47,6 +47,7 @@ public class AgenteUserService {
     	agenteUserUpdate.setNome(agenteUser.getNome());
     	agenteUserUpdate.setFuncao(agenteUser.getFuncao());
     	agenteUserUpdate.setCodigo(agenteUser.getCodigo());
+    	agenteUserUpdate.setEquipe_id(agenteUser.getEquipe_id());
     	agenteRepository.save(agenteUserUpdate);
 		return agenteUserUpdate;
 	}
