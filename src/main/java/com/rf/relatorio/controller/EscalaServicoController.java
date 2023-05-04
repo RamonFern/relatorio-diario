@@ -39,6 +39,7 @@ public class EscalaServicoController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<EscalaServicoDTO> createEscala(@RequestBody EscalaServicoDTO escalaDto) {
+		System.out.println(escalaDto);
 		EscalaServico escala = escalaServicoMapper.toEscalaServico(escalaDto);
 		EscalaServico escalaCriada = escalaServicoService.createEscala(escala);
 		

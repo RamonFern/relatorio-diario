@@ -23,6 +23,6 @@ public class EscalaServicoDTO {
 	private String data;
 	
 	@NotEmpty
-	private String equipe;
+	private Long equipe_id;
 
 }

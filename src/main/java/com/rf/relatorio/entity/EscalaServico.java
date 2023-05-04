@@ -26,5 +26,5 @@ public class EscalaServico {
 	private String data;
 	
 	@Column
-	private String equipe;
+	private Long equipe_id;
 }
