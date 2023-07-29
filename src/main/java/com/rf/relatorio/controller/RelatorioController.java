@@ -73,13 +73,13 @@ public class RelatorioController {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@Operation(summary = "Atualizar relatório")
-	@PutMapping("/{id}")
-	public ResponseEntity<RelatorioDTO> update(@PathVariable Long id, @RequestBody RelatorioDTO relatorioDTO) {
-		Relatorio relatorioAtualizada = relatorioMapper.toRelatorio(relatorioDTO);
-		Relatorio pessoa = relatorioService.update(id, relatorioAtualizada);
-		return ResponseEntity.ok(relatorioMapper.toDTO(pessoa));
-	}
+//	@Operation(summary = "Atualizar relatório")
+//	@PutMapping("/{id}")
+//	public ResponseEntity<RelatorioDTO> update(@PathVariable Long id, @RequestBody RelatorioDTO relatorioDTO) {
+//		Relatorio relatorioAtualizada = relatorioMapper.toRelatorio(relatorioDTO);
+//		Relatorio pessoa = relatorioService.update(id, relatorioAtualizada);
+//		return ResponseEntity.ok(relatorioMapper.toDTO(pessoa));
+//	}
 	
 	
 }

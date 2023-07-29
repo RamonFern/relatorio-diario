@@ -22,16 +22,33 @@ public class Relatorio {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String data;
+	private String datadorelatorio;
+	
+	private String datadehoje;
 	
 	@Column(nullable = false)
-	private boolean alteracao;
+	private String alteracao;
 	
 	@Column(nullable = false)
-	private String equipe;
+	private String nomeequipe;
 	
 	@Column(nullable = false)
-	private String texto;
+	private String nomeinspetor;
+	
+	@Column(nullable = false)
+	private String agentesdaequipe;
+	
+	@Column(nullable = false)
+	private String agentesparapermultar;
+	
+	@Column(nullable = false)
+	private String agentedefolgaparapermultar;
+	
+	@Column(nullable = false)
+	private String agentesparareforco;
+	
+	@Column(nullable = false)
+	private String texto1;
 	
 	@Column(nullable = false)
 	private String texto2;
@@ -39,6 +56,17 @@ public class Relatorio {
 	@Column(nullable = false)
 	private String texto3;
 	
-	@Column(nullable = false)
-	private String inspetor;
 }
+/*
+ * dataDoRelatorio: string
+  dataDeHoje: string
+  nomeEquipe: string
+  nomeInspetor: string
+  agentesDaEquipe: string
+  agentesParaPermultar: string
+  agenteDeFolgaParaPermultar: string
+  agentesParaReforco: string
+  alteracao: string
+  texto1: string
+  texto2: string
+  texto3: string*/

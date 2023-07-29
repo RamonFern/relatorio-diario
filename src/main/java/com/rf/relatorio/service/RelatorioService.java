@@ -41,20 +41,20 @@ public class RelatorioService {
 		relatorioRepository.deleteById(id);
 	}
 	
-	@Transactional
-	public Relatorio update(Long id, Relatorio relatorio) {
-		Relatorio relatorioUpdate = findById(id);
-		relatorioUpdate.setData(relatorio.getData());
-		relatorioUpdate.setAlteracao(relatorio.isAlteracao());
-		relatorioUpdate.setInspetor(relatorio.getInspetor());
-		relatorioUpdate.setEquipe(relatorio.getEquipe());
-		relatorioUpdate.setTexto(relatorio.getTexto());
-		relatorioUpdate.setTexto2(relatorio.getTexto2());
-		relatorioUpdate.setTexto3(relatorio.getTexto3());
-		
-		relatorioRepository.save(relatorioUpdate);
-		return relatorioUpdate;
-	}
-	
+//	@Transactional
+//	public Relatorio update(Long id, Relatorio relatorio) {
+//		Relatorio relatorioUpdate = findById(id);
+//		relatorioUpdate.setData(relatorio.getData());
+//		relatorioUpdate.setAlteracao(relatorio.isAlteracao());
+//		relatorioUpdate.setInspetor(relatorio.getInspetor());
+//		relatorioUpdate.setEquipe(relatorio.getEquipe());
+//		relatorioUpdate.setTexto(relatorio.getTexto());
+//		relatorioUpdate.setTexto2(relatorio.getTexto2());
+//		relatorioUpdate.setTexto3(relatorio.getTexto3());
+//		
+//		relatorioRepository.save(relatorioUpdate);
+//		return relatorioUpdate;
+//	}
+//	
 
 }

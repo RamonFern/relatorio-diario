@@ -1,5 +1,6 @@
 package com.rf.relatorio.dto;
 
+import javax.persistence.Column;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -20,24 +21,42 @@ public class RelatorioDTO {
 	private Long id;
 
 	@JsonFormat(pattern = "dd-MM-yyyy")
-	private String data;
+	private String datadorelatorio;
+
+	@JsonFormat(pattern = "dd-MM-yyyy")
+	private String datadehoje;
 	
 	@NotEmpty
-	private boolean alteracao;
+	private String alteracao;
 
 	@NotEmpty
-	private String equipe;
-	
+	private String nomeequipe;
+
 	@NotEmpty
-	private String texto;
-	
+	private String nomeinspetor;
+
+	@NotEmpty
+	private String agentesdaequipe;
+
+	@NotEmpty
+	private String agentesparapermultar;
+
+	@NotEmpty
+	private String agentedefolgaparapermultar;
+
+	@NotEmpty
+	private String agentesparareforco;
+
+	@NotEmpty
+	private String texto1;
+
 	@NotEmpty
 	private String texto2;
-	
+
 	@NotEmpty
 	private String texto3;
 
-	@NotEmpty
-	private String inspetor;
 
 }
+
+
