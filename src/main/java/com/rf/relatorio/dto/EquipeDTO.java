@@ -20,10 +20,10 @@ public class EquipeDTO {
 	private Long id;
 	
 	@NotEmpty
-	private String nomeEquipe;
+	private String nomeequipe;
 	
-	@NotEmpty
-	private String id_agentes;
+//	@NotEmpty
+//	private String id_agentes;
 //	private List<AgenteUser> agentes;
 
 }

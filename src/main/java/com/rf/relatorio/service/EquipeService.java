@@ -34,11 +34,12 @@ public class EquipeService {
 	public Equipe findById(Long id) {
 		return equipeRepository.findById(id).orElseThrow(() -> new EquipeNotFoundException(id));
 	}
-	
-	
-    /* @Transactional
+
+	@Transactional
 	public void delete(Long id) {
 		findById(id);
-		agenteRepository.deleteById(id);
-	}*/	
+		equipeRepository.deleteById(id);
+	}
+	
+		
 }
