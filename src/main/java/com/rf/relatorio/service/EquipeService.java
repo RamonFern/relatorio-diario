@@ -40,6 +40,16 @@ public class EquipeService {
 		findById(id);
 		equipeRepository.deleteById(id);
 	}
+
+	@Transactional
+	public Equipe update(Long id, Equipe equipe) {
+		Equipe equipeEncontrada = findById(id);
+		//equipeEncontrada.setId(equipe.getId());
+		equipeEncontrada.setNomeequipe(equipe.getNomeequipe());
+		equipeRepository.save(equipeEncontrada);
+		return equipeEncontrada;
+	}
+	
 	
 		
 }

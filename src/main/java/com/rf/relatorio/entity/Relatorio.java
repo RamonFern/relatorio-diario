@@ -48,6 +48,9 @@ public class Relatorio {
 	private String agentesparareforco;
 	
 	@Column(nullable = false)
+	private String agentesfaltoso;
+	
+	@Column(nullable = false)
 	private String texto1;
 	
 	@Column(nullable = false)
@@ -57,16 +60,4 @@ public class Relatorio {
 	private String texto3;
 	
 }
-/*
- * dataDoRelatorio: string
-  dataDeHoje: string
-  nomeEquipe: string
-  nomeInspetor: string
-  agentesDaEquipe: string
-  agentesParaPermultar: string
-  agenteDeFolgaParaPermultar: string
-  agentesParaReforco: string
-  alteracao: string
-  texto1: string
-  texto2: string
-  texto3: string*/
+

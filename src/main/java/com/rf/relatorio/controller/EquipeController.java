@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -71,10 +72,13 @@ public class EquipeController {
 		return ResponseEntity.noContent().build();
 	}
 	
-	
-	
-	
-	
-	
+	@Operation(summary = "Editar equipe")
+	@PutMapping("/{id}")
+	public ResponseEntity<EquipeDTO> update(@PathVariable Long id, @RequestBody EquipeDTO equipeDTO) {
+		Equipe equipe = equipeMapper.toEquipe(equipeDTO);
+		equipeService.update(id, equipe);
+		return ResponseEntity.ok(equipeMapper.toEquipeDTO(equipe));
 
+	}
+	
 }

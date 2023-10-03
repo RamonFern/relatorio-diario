@@ -1,6 +1,5 @@
 package com.rf.relatorio.dto;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -46,6 +45,9 @@ public class RelatorioDTO {
 
 	@NotEmpty
 	private String agentesparareforco;
+	
+	@NotEmpty
+	private String agentesfaltoso;
 
 	@NotEmpty
 	private String texto1;
