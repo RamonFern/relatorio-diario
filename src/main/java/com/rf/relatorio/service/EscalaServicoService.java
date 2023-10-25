@@ -31,6 +31,11 @@ public class EscalaServicoService {
 	}
 	
 	@Transactional(readOnly = true)
+	public List<EscalaServico> listarEscalaDaEquipe(Long id) {
+		return escalaServicoRepository.findByEquipeid(id);
+	}
+	
+	@Transactional(readOnly = true)
 	public EscalaServico FindById(Long id) {
 		return escalaServicoRepository.findById(id).orElseThrow(() -> new EscalaServicoNotFoundException(id));
 	}

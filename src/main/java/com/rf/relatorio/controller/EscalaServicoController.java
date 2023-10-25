@@ -50,7 +50,7 @@ public class EscalaServicoController {
 	
 	@Operation(summary = "Buscar todas as escalas")
 	@GetMapping
-	ResponseEntity<List<EscalaServicoDTO>> findAll(){
+	public ResponseEntity<List<EscalaServicoDTO>> findAll(){
 		List<EscalaServico> list = escalaServicoService.findAll();
 		List<EscalaServicoDTO> escalaServicoDtoList = escalaServicoMapper.toEscalaServicoDTOList(list);
 		
@@ -64,6 +64,16 @@ public class EscalaServicoController {
 		EscalaServicoDTO escalaDto = escalaServicoMapper.toEscalaServicoDTO(escalaServico);
 		
 		return ResponseEntity.ok(escalaDto);
+	}
+	
+	@Operation(summary = "Buscar escala da equipe")
+	@GetMapping("/equipe/{id}")
+	public ResponseEntity<List<EscalaServicoDTO>> buscarPorEquipe(@PathVariable Long id) {
+		List<EscalaServico> list = escalaServicoService.listarEscalaDaEquipe(id);
+		List<EscalaServicoDTO> escalasDaEquipeDto = escalaServicoMapper.toEscalaServicoDTOList(list);
+		
+		return ResponseEntity.ok(escalasDaEquipeDto);
+		
 	}
 
 }
