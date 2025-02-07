@@ -1,10 +1,12 @@
 package com.rf.relatorio.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,22 +19,38 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AgenteUser {
-
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 	
-	@Column(nullable = false)
-	private String nome;
-	
-	@Column(nullable = false)
+    private String nome;
+    
 	private String funcao;
 	
-	@Column(nullable = false)
 	private Integer codigo;
+    
+    @ManyToOne
+    @JsonIgnore
+    private Equipe equipe;
+
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	private Long id;
+//	
+//	@Column(nullable = false)
+//	private String nome;
+//	
+//	@Column(nullable = false)
+//	private String funcao;
+//	
+//	@Column(nullable = false)
+//	private Integer codigo;
+//	
+//	@Column(nullable = true)
+//    private Long equipe_id;
 	
-	@Column(nullable = true)
-    private Long equipe_id;
+	
 	
 
 	

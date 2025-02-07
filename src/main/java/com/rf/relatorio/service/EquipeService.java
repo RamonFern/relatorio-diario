@@ -45,7 +45,7 @@ public class EquipeService {
 	public Equipe update(Long id, Equipe equipe) {
 		Equipe equipeEncontrada = findById(id);
 		//equipeEncontrada.setId(equipe.getId());
-		equipeEncontrada.setNomeequipe(equipe.getNomeequipe());
+		equipeEncontrada.setNome(equipe.getNome());
 		equipeRepository.save(equipeEncontrada);
 		return equipeEncontrada;
 	}

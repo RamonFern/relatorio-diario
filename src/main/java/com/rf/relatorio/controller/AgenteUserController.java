@@ -80,5 +80,18 @@ public class AgenteUserController {
 		return ResponseEntity.ok(agenteUserMapper.toDTO(user));
 	}
 	
+    @PutMapping("/{agenteId}/adicionar-equipe/{equipeId}")
+    public String adicionarAgenteAEquipe(
+            @PathVariable Long agenteId,
+            @PathVariable Long equipeId) {
+        return agenteService.adicionarAgenteAEquipe(agenteId, equipeId);
+    }
+    
+    // Endpoint para remover um AgenteUser de uma equipe
+    @PutMapping("/{agenteId}/remover-equipe")
+    public String removerAgenteDeEquipe(@PathVariable Long agenteId) {
+        return agenteService.removerAgenteDeEquipe(agenteId);
+    }
+	
 	
 }

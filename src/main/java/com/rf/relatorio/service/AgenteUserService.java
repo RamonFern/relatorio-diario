@@ -8,17 +8,22 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rf.relatorio.entity.AgenteUser;
+import com.rf.relatorio.entity.Equipe;
 import com.rf.relatorio.exception.AgenteUserNotFoundException;
 import com.rf.relatorio.repository.AgenteUserRepository;
+import com.rf.relatorio.repository.EquipeRepository;
 
 @Service
 public class AgenteUserService {
 
 	private AgenteUserRepository agenteRepository;
 	
+    private EquipeRepository equipeRepository;
+	
 	@Autowired
-	public AgenteUserService(AgenteUserRepository agenteRepository) {
+	public AgenteUserService(AgenteUserRepository agenteRepository, EquipeRepository equipeRepository) {
 		this.agenteRepository = agenteRepository;
+		this.equipeRepository = equipeRepository;
 	}
 	
 	public AgenteUser createAgenteUser(AgenteUser agenteUser) {
@@ -47,8 +52,36 @@ public class AgenteUserService {
     	agenteUserUpdate.setNome(agenteUser.getNome());
     	agenteUserUpdate.setFuncao(agenteUser.getFuncao());
     	agenteUserUpdate.setCodigo(agenteUser.getCodigo());
-    	agenteUserUpdate.setEquipe_id(agenteUser.getEquipe_id());
+    	//agenteUserUpdate.setEquipe_id(agenteUser.getEquipe_id());
     	agenteRepository.save(agenteUserUpdate);
 		return agenteUserUpdate;
 	}
+    
+    public String adicionarAgenteAEquipe(Long agenteId, Long equipeId) {
+        // Busca o AgenteUser pelo ID
+        AgenteUser agenteUser = agenteRepository.findById(agenteId)
+                .orElseThrow(() -> new RuntimeException("AgenteUser não encontrado"));
+
+        // Busca a Equipe pelo ID
+        Equipe equipe = equipeRepository.findById(equipeId)
+                .orElseThrow(() -> new RuntimeException("Equipe não encontrada"));
+
+        // Adiciona o AgenteUser à equipe
+        agenteUser.setEquipe(equipe);
+        agenteRepository.save(agenteUser);
+
+        return "AgenteUser " + agenteUser.getNome() + " adicionado à equipe " + equipe.getNome();
+    }
+    
+    public String removerAgenteDeEquipe(Long agenteId) {
+        // Busca o AgenteUser pelo ID
+        AgenteUser agenteUser = agenteRepository.findById(agenteId)
+                .orElseThrow(() -> new RuntimeException("AgenteUser não encontrado"));
+
+        // Remove o AgenteUser da equipe (define equipe como null)
+        agenteUser.setEquipe(null);
+        agenteRepository.save(agenteUser);
+
+        return "AgenteUser " + agenteUser.getNome() + " foi removido da equipe.";
+    }
 }

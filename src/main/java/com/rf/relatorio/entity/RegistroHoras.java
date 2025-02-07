@@ -1,12 +1,10 @@
 package com.rf.relatorio.entity;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,21 +16,17 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Equipe {
-	
-	@Id
+public class RegistroHoras {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
     
-    @OneToMany(mappedBy = "equipe")
-    private List<AgenteUser> membros;
-	
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	private Long id;
-//	
-//	@Column
-//	private String nomeequipe;
-	
+    @ManyToOne
+    private AgenteUser usuario;
+    
+    private String data;
+    private String horaEntrada;
+    private String horaSaida;
+
+    // Getters e Setters
 }
