@@ -21,6 +21,10 @@ public class HorasTrabalhadasService {
     @Autowired
     private RegistroHorasRepository  registroHorasRepository;
     
+    public RegistroHoras salvarRegistroHoras(RegistroHoras registroHoras) {
+        return registroHorasRepository.save(registroHoras);
+    }
+    
     public long calcularHorasTrabalhadasPorUsuario(Long usuarioId) {
         List<RegistroHoras> registros = registroHorasRepository.findByUsuarioId(usuarioId);
         long totalHoras = 0;
