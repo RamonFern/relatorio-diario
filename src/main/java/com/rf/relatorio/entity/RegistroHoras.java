@@ -27,6 +27,9 @@ public class RegistroHoras {
     private String data;
     private String horaEntrada;
     private String horaSaida;
+    
+    private boolean falta; // Indica se o AgenteUser faltou
+    private String justificativaFalta; // Justificativa da falta (opcional)
 
     // Getters e Setters
 }

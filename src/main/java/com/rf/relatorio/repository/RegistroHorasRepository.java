@@ -9,4 +9,6 @@ public interface RegistroHorasRepository extends JpaRepository<RegistroHoras, Lo
 	
 	List<RegistroHoras> findByUsuarioId(Long usuarioId);
 	
+	List<RegistroHoras> findByUsuarioIdAndFaltaTrue(Long usuarioId); // Busca faltas por usuário
+	
 }

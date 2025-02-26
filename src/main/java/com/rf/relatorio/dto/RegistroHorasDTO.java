@@ -17,4 +17,6 @@ public class RegistroHorasDTO {
     private String data;
     private String horaEntrada;
     private String horaSaida;
+    private boolean falta;
+    private String justificativaFalta;
 }
