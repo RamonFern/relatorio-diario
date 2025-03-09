@@ -84,4 +84,8 @@ public class AgenteUserService {
 
         return "AgenteUser " + agenteUser.getNome() + " foi removido da equipe.";
     }
+    
+    public List<AgenteUser> buscarAgentesSemEquipe() {
+        return agenteRepository.findByEquipeIsNull();
+    }
 }

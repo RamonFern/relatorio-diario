@@ -9,4 +9,6 @@ import com.rf.relatorio.entity.AgenteUser;
 public interface AgenteUserRepository extends JpaRepository<AgenteUser, Long>{
 
 	List<AgenteUser> findByEquipeId(Long equipeId);
+	
+	List<AgenteUser> findByEquipeIsNull();
 }

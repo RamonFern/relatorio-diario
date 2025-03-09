@@ -92,6 +92,11 @@ public class AgenteUserController {
     public String removerAgenteDeEquipe(@PathVariable Long agenteId) {
         return agenteService.removerAgenteDeEquipe(agenteId);
     }
+    
+    @GetMapping("/sem-equipe")
+    public List<AgenteUser> listarAgentesSemEquipe() {
+        return agenteService.buscarAgentesSemEquipe();
+    }
 	
 	
 }
