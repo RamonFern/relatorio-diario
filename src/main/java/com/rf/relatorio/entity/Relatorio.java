@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -51,11 +52,14 @@ public class Relatorio {
 	private String agentesfaltoso;
 	
 	@Column(nullable = false)
+	@Lob
 	private String texto1;
 	
 	@Column(nullable = false)
+	@Lob
 	private String texto2;
 	
+	@Lob
 	@Column(nullable = false)
 	private String texto3;
 	

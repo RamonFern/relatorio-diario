@@ -1,5 +1,7 @@
 package com.rf.relatorio.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,14 +24,14 @@ public class RegistroHoras {
     private Long id;
     
     @ManyToOne
-    private AgenteUser usuario;
+    private AgenteUser agente;
     
-    private String data;
-    private String horaEntrada;
-    private String horaSaida;
+    private LocalDateTime dataHoraInicio;
+    private LocalDateTime dataHoraFim;
+    private int atraso;
     
-    private boolean falta; // Indica se o AgenteUser faltou
-    private String justificativaFalta; // Justificativa da falta (opcional)
+    private boolean falta; 
+    private String justificativaFalta; 
 
     // Getters e Setters
 }
