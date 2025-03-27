@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rf.relatorio.dto.HorasTrabalhadasDTO;
 import com.rf.relatorio.entity.RegistroHoras;
+import com.rf.relatorio.exception.RegistroHorasNotFoundException;
 import com.rf.relatorio.repository.RegistroHorasRepository;
 
 
@@ -30,6 +31,34 @@ public class HorasTrabalhadasService {
 	public List<RegistroHoras> buscarTodosRegistroHorasRepository() {
 		return registroHorasRepository.findAll();
 	}
+    
+    public List<RegistroHoras> getRegistrosByAgenteIdAndPeriodo(
+    		Long agenteId, LocalDateTime dataInicio, LocalDateTime dataFim) {
+        return registroHorasRepository.findByAgenteIdAndDataHoraInicioBetween(agenteId, dataInicio, dataFim);
+    }
+    
+    @Transactional(readOnly = true)
+	public RegistroHoras findById(Long id) {
+		return registroHorasRepository.findById(id).orElseThrow(() -> new RegistroHorasNotFoundException(id));
+	}
+    
+    @Transactional
+	public void delete(Long id) {
+		findById(id);
+		registroHorasRepository.deleteById(id);
+	}
+    
+    @Transactional
+   	public RegistroHoras update(RegistroHoras registro, Long id) {
+    	RegistroHoras registroHorasUpdate = findById(id);
+    	registroHorasUpdate.setAgente(registro.getAgente());
+    	registroHorasUpdate.setDataHoraInicio(registro.getDataHoraInicio());
+    	registroHorasUpdate.setDataHoraFim(registro.getDataHoraFim());
+    	registroHorasUpdate.setAtraso(registro.getAtraso());
+    	registroHorasUpdate.setFalta(registro.isFalta());
+    	registroHorasUpdate.setJustificativaFalta(registro.getJustificativaFalta());
+   		return registroHorasUpdate;
+   	}
     
     
     public HorasTrabalhadasDTO calcularHorasTrabalhadas(Long agenteId, LocalDateTime inicio, LocalDateTime fim) {

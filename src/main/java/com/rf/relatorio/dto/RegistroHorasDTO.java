@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RegistroHorasDTO {
-	 private Long agente_id;
+	private Long agente_id;
     private LocalDateTime dataHoraInicio;
     private LocalDateTime dataHoraFim;
     private int atraso;

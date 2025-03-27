@@ -10,11 +10,9 @@ import com.rf.relatorio.entity.RegistroHoras;
 public interface RegistroHorasRepository extends JpaRepository<RegistroHoras, Long> {
 	 
 	  List<RegistroHoras> findByAgenteIdAndDataHoraInicioBetween(
-	            Long agente_id, LocalDateTime inicio, LocalDateTime fim); 
-	 
-	 
+			  Long agenteId, LocalDateTime dataInicio, LocalDateTime dataFim);
+	
 	  List<RegistroHoras> findByAgente_IdAndDataHoraInicioBetween(
-		        Long agenteId, LocalDateTime inicio, LocalDateTime fim
-		    );
+		      Long agenteId, LocalDateTime inicio, LocalDateTime fim);
 	
 }

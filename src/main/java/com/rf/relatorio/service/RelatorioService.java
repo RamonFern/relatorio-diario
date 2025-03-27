@@ -41,20 +41,26 @@ public class RelatorioService {
 		relatorioRepository.deleteById(id);
 	}
 	
-//	@Transactional
-//	public Relatorio update(Long id, Relatorio relatorio) {
-//		Relatorio relatorioUpdate = findById(id);
-//		relatorioUpdate.setData(relatorio.getData());
-//		relatorioUpdate.setAlteracao(relatorio.isAlteracao());
-//		relatorioUpdate.setInspetor(relatorio.getInspetor());
-//		relatorioUpdate.setEquipe(relatorio.getEquipe());
-//		relatorioUpdate.setTexto(relatorio.getTexto());
-//		relatorioUpdate.setTexto2(relatorio.getTexto2());
-//		relatorioUpdate.setTexto3(relatorio.getTexto3());
-//		
-//		relatorioRepository.save(relatorioUpdate);
-//		return relatorioUpdate;
-//	}
-//	
+	@Transactional
+	public Relatorio update(Long id, Relatorio relatorio) {
+		Relatorio relatorioUpdate = findById(id);
+		relatorioUpdate.setAgentedefolgaparapermultar(relatorio.getAgentedefolgaparapermultar());
+		relatorioUpdate.setAgentesparapermultar(relatorio.getAgentesparapermultar());
+		relatorioUpdate.setNomeinspetor(relatorio.getNomeinspetor());
+		relatorioUpdate.setNomeequipe(relatorio.getNomeequipe());
+		relatorioUpdate.setDatadehoje(relatorio.getDatadehoje());
+		relatorioUpdate.setDatadorelatorio(relatorio.getDatadorelatorio());
+		relatorioUpdate.setAgentesdaequipe(relatorio.getAgentesdaequipe());
+		relatorioUpdate.setAlteracao(relatorio.getAlteracao());
+		relatorioUpdate.setAgentesfaltoso(relatorio.getAgentesfaltoso());
+		relatorioUpdate.setAgentesparareforco(relatorio.getAgentesparareforco());
+		relatorioUpdate.setTexto1(relatorio.getTexto1());
+		relatorioUpdate.setTexto2(relatorio.getTexto2());
+		relatorioUpdate.setTexto3(relatorio.getTexto3());
+		
+		relatorioRepository.save(relatorioUpdate);
+		return relatorioUpdate;
+	}
+	
 
 }

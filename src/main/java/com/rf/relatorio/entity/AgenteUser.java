@@ -34,21 +34,6 @@ public class AgenteUser {
     @JsonIgnore
     private Equipe equipe;
 
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	private Long id;
-//	
-//	@Column(nullable = false)
-//	private String nome;
-//	
-//	@Column(nullable = false)
-//	private String funcao;
-//	
-//	@Column(nullable = false)
-//	private Integer codigo;
-//	
-//	@Column(nullable = true)
-//    private Long equipe_id;
 	
 	
 	
