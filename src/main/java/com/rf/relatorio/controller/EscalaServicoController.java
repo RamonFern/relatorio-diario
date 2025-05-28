@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @RequestMapping("/api/v2/escala-servico")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "*")
 public class EscalaServicoController {
 	
 	private EscalaServicoService escalaServicoService;

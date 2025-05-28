@@ -27,7 +27,7 @@ import io.swagger.v3.oas.annotations.Operation;
 @RestController
 @RequestMapping("/api/v1/relatorio")
 //@CrossOrigin(origins = "https://front-relatorio-v2.herokuapp.com/")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "*")
 public class RelatorioController {
 
 	
