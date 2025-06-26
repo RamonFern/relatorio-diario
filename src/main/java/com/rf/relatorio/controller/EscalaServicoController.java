@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -48,6 +49,15 @@ public class EscalaServicoController {
 		
 	}
 	
+	@Operation(summary = "Editar escala")
+	@PutMapping("/{id}")
+	public ResponseEntity<EscalaServicoDTO> update(@PathVariable Long id, @RequestBody EscalaServicoDTO escalaServicoDTO) {
+		EscalaServico escala = escalaServicoMapper.toEscalaServico(escalaServicoDTO);
+		escalaServicoService.update(id, escala);
+		return ResponseEntity.ok(escalaServicoMapper.toEscalaServicoDTO(escala));
+	}
+
+	
 	@Operation(summary = "Buscar todas as escalas")
 	@GetMapping
 	public ResponseEntity<List<EscalaServicoDTO>> findAll(){
@@ -60,7 +70,7 @@ public class EscalaServicoController {
 	@Operation(summary = "Buscar escala por id")
 	@GetMapping("/{id}")
 	public ResponseEntity<EscalaServicoDTO> findById(@PathVariable Long id) {
-		EscalaServico escalaServico = escalaServicoService.FindById(id);
+		EscalaServico escalaServico = escalaServicoService.findById(id);
 		EscalaServicoDTO escalaDto = escalaServicoMapper.toEscalaServicoDTO(escalaServico);
 		
 		return ResponseEntity.ok(escalaDto);

@@ -36,10 +36,21 @@ public class EscalaServicoService {
 	}
 	
 	@Transactional(readOnly = true)
-	public EscalaServico FindById(Long id) {
+	public EscalaServico findById(Long id) {
 		return escalaServicoRepository.findById(id).orElseThrow(() -> new EscalaServicoNotFoundException(id));
 	}
-	
+
+	@Transactional
+	public EscalaServico update(Long id, EscalaServico escala) {
+		EscalaServico equipeParaAtualizar = findById(id);
+		equipeParaAtualizar.setEquipeid(escala.getEquipeid());
+		equipeParaAtualizar.setData(escala.getData());
+//		equipeParaAtualizar.setId(id);
+		escalaServicoRepository.save(equipeParaAtualizar);
+		return equipeParaAtualizar;
+		
+	}
+		
 	
 	
 }
